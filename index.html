@@ -320,17 +320,6 @@
 		el = document.getElementById("p8_start_button");
 		if (el) el.style.display="none";
 
-		// add #playing for touchscreen devices (allows back button to close)
-		// X button can also be used to trigger this 
-		if (p8_touch_detected)
-		{
-			window.location.hash = "#playing";
-			window.onhashchange = function()
-			{
-				if (window.location.hash.search("playing") < 0)
-					window.location.reload();
-			}
-		}
 
 		// install drag&drop listeners
 		{
