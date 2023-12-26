@@ -42,6 +42,7 @@ canvas{
     image-rendering: -webkit-optimize-contrast;
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
+    background-color: grey;
     -ms-interpolation-mode: nearest-neighbor;
 	border: 0px;
 	cursor: none;
