@@ -1,17 +1,17 @@
 /* Set the text color */
 body {
-  color: white;
+  color: black;
 }
 
 /* Set the background color to grey*/
 body {
-  background-color: #000;
+  background-color: gray;
   border: 1px solid lightgray;
 }
 
 /* Add a horizontal line under H1 elements*/
 h1 {
-  background-color: grey;
+  background-color: gray;
   border-bottom: 2px white;
 }
 
@@ -42,7 +42,7 @@ canvas{
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
-	border: 1px white;
+	border: 4px white;
 	cursor: none;
 }
 
