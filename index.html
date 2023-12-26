@@ -207,8 +207,8 @@
 
 		
 		
-			document.getElementById("touch_controls_gfx").style.display="none";
-			document.getElementById("touch_controls_background").style.display="none";
+		document.getElementById("touch_controls_gfx").style.display="none";
+		document.getElementById("touch_controls_background").style.display="none";
 		
 
 		if (!p8_is_running)
@@ -225,17 +225,7 @@
 
 
 	var p8_touch_detected = false;
-	addEventListener("touchstart", function(event)
-	{
-		p8_touch_detected = true;
 
-		// hide codo_textarea -- clipboard support on mobile is not feasible
-		el = document.getElementById("codo_textarea");
-		if (el && el.style.display != "none"){
-			el.style.display="none";
-		}
-
-	},  {passive: true});
 
 	function p8_create_audio_context()
 	{
