@@ -93,26 +93,6 @@
 			if (el.innerHTML != new_str)
 				el.innerHTML = new_str;
 
-
-
-
-			// hide all buttons for touch mode (can pause with menu buttons)
-
-			var is_visible = p8_is_running;
-
-			if ((!p8_touch_detected || !p8_allow_mobile_menu) && el.parentElement.id == "p8_menu_buttons_touch")
-				is_visible = false;
-
-			if (p8_touch_detected && el.parentElement.id == "p8_menu_buttons")
-				is_visible = false;
-
-			if (is_fullscreen) 
-				is_visible = false;
-
-			if (is_visible)
-				el.style.display="";
-			else
-				el.style.display="none";
 		}
 		requestAnimationFrame(p8_update_button_icons);
 	}
