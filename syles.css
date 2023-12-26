@@ -1,11 +1,11 @@
 /* Set the text color to light blue */
 body {
-  color: pink;
+  color: white;
 }
 
 /* Set the background color to grey */
 body {
-  background-color: gray;
+  background-color: dimgrey;
   border: 1px solid lightgray;
 }
 
