@@ -1,15 +1,15 @@
-/* Set the text color  */
+/* Set the text color */
 body {
   color: white;
 }
 
-/* Set the background color to grey */
+/* Set the background color to grey*/
 body {
   background-color: dimgrey;
   border: 1px solid lightgray;
 }
 
-/* Add a horizontal line under H1 elements */
+/* Add a horizontal line under H1 elements*/
 h1 {
-  border-bottom: 1px white;
+  border-bottom: 3px white;
 }
