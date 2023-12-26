@@ -457,14 +457,14 @@
 		if (!is_fullscreen && p8_frame)
 			last_windowed_container_height = p8_frame.parentNode.parentNode.offsetHeight;
 		
-
+//removing to attempt to fix tiny window issue
 		// mobile in portrait mode: put screen at top (w / a little extra space for fullscreen button if needed)
 		// (don't cart too about buttons overlapping screen)
-		if (p8_touch_detected && p8_is_running && document.body.clientWidth < document.body.clientHeight)
-			p8_playarea.style.marginTop = p8_allow_mobile_menu ? 32 : 8;
-		else if (p8_touch_detected && p8_is_running) // landscape: slightly above vertical center (only relevant for iPad / highres devices)
-			p8_playarea.style.marginTop = (document.body.clientHeight - csize) / 4;
-		else
+		//if (p8_touch_detected && p8_is_running && document.body.clientWidth < document.body.clientHeight)
+		//	p8_playarea.style.marginTop = p8_allow_mobile_menu ? 32 : 8;
+		//else if (p8_touch_detected && p8_is_running) // landscape: slightly above vertical center (only relevant for iPad / highres devices)
+		//	p8_playarea.style.marginTop = (document.body.clientHeight - csize) / 4;
+		//else
 			p8_playarea.style.marginTop = "";
 
 		canvas.style.width = csize;
