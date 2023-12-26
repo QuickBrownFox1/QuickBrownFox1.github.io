@@ -431,48 +431,7 @@
 	// axes 0,1 & buttons 0,1,2,3 are reasonably safe. don't try to read dpad.
 	// menu buttons are unpredictable, but use 6..8 anyway (better to have a weird menu button than none)
 
-	function p8_convert_unmapped_gamepad_to_button_state(gamepad, axis_threshold, button_threshold) {
-
-		if (!gamepad || !gamepad.axes || !gamepad.buttons) {
-			return {
-				button_state: 0,
-				menu_button: false,
-				any_button: false
-			};
-		}
-
-		var button_state = 0;
-
-		if (gamepad.axes[0] && gamepad.axes[0] < -axis_threshold) button_state |= 0x1;
-		if (gamepad.axes[0] && gamepad.axes[0] > axis_threshold)  button_state |= 0x2;
-		if (gamepad.axes[1] && gamepad.axes[1] < -axis_threshold) button_state |= 0x4;
-		if (gamepad.axes[1] && gamepad.axes[1] > axis_threshold)  button_state |= 0x8;
-
-		// buttons: first 4 taken to be O/X, 6..8 taken to be menu button
-
-		for (j = 0; j < gamepad.buttons.length; j++)
-		if (gamepad.buttons[j].value > 0 || gamepad.buttons[j].pressed)
-		{
-			if (j < 4)
-				button_state |= (0x10 << (((j+1)/2)&1)); // 0 1 1 0 -- A,X -> O,X on xbox360
-			else if (j >= 6 && j <= 8)
-				button_state |= 0x40;
-		}
-
-		var menu_button = button_state & 0x40;
-
-		var any_button = gamepad.buttons.some(function (button) {
-			return button.value > button_threshold || button.pressed;
-		});
-
-		any_button |= button_state; //jww: include axes 0,1 as might be first intended action
-		
-		return {
-			button_state,
-			menu_button,
-			any_button
-		};
-	}
+	
 
 	
 	// gamepad  https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
