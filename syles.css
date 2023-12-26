@@ -5,11 +5,11 @@ body {
 
 /* Set the background color to grey*/
 body {
-  background-color: dimgrey;
+  background-color: #444;
   border: 1px solid lightgray;
 }
 
 /* Add a horizontal line under H1 elements*/
 h1 {
-  border-bottom: 3px white;
+  border-bottom: 3px solid black;
 }
