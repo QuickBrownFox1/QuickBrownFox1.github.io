@@ -427,67 +427,9 @@
 		};
 	}
 
-	// jww: pico-8 0.2.1 version for unmapped gamepads, following p8_convert_standard_gamepad_to_button_state
-	// axes 0,1 & buttons 0,1,2,3 are reasonably safe. don't try to read dpad.
-	// menu buttons are unpredictable, but use 6..8 anyway (better to have a weird menu button than none)
-
-	
-
-	
 	// gamepad  https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
 	// (sets bits in pico8_buttons[])
-	function p8_update_gamepads() {
-		var axis_threshold = 0.3;
-		var button_threshold = 0.5; // Should be unnecessary, we should be able to trust .pressed
-		var max_players = 8;
-		var gps = navigator.getGamepads() || navigator.webkitGetGamepads();
 
-		if (!gps) return;
-
-		// In Chrome, gps is iterable but it's not an array.
-		gps = Array.from(gps);
-
-		pico8_gamepads.count = gps.length;
-		while (gps.length > pico8_gamepads_mapping.length) {
-		    pico8_gamepads_mapping.push(null);
-		}
-
-		var menu_button = false;
-		var gamepad_states = gps.map(function (gp) {
-			return (gp && gp.mapping == "standard") ?
-				p8_convert_standard_gamepad_to_button_state(gp, axis_threshold, button_threshold) :
-				p8_convert_unmapped_gamepad_to_button_state(gp, axis_threshold, button_threshold);
-		});
-
-		// Unassign disconnected gamepads.
-		// gps.forEach(function (gp, i) { if (gp && !gp.connected) { p8_unassign_gamepad(i); }});
-		gps.forEach(function (gp, i) { if (!gp || !gp.connected) { p8_unassign_gamepad(i); }}); // https://www.lexaloffle.com/bbs/?pid=87132#p
-
-
-		// Assign unassigned gamepads when any button is pressed.
-		gamepad_states.forEach(function (state, i) {
-			if (state.any_button && pico8_gamepads_mapping[i] == null) {
-				var first_free_player = p8_first_player_without_gamepad(max_players);
-				p8_assign_gamepad_to_player(i, first_free_player);
-			}
-		});
-
-		// Update pico8_buttons array.
-		gamepad_states.forEach(function (gamepad_state, i) {
-			if (pico8_gamepads_mapping[i] != null) {
-				pico8_buttons[pico8_gamepads_mapping[i]] = gamepad_state.button_state;
-			}
-		});
-
-		// Update menu button.
-		// Pico 8 only recognises the menu button on the first player, so we
-		// press it when any gamepad has pressed a button mapped to menu.
-		if (gamepad_states.some(function (state) { return state.menu_button; })) {
-			pico8_buttons[0] |= 0x40;
-		}
-
-		requestAnimationFrame(p8_update_gamepads);
-	}
 	requestAnimationFrame(p8_update_gamepads);
 
 	// End of gamepad code
