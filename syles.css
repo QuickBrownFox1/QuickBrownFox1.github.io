@@ -5,13 +5,13 @@ body {
 
 /* Set the background color to grey*/
 body {
-  background-color: #444;
+  background-color: #000;
   border: 1px solid lightgray;
 }
 
 /* Add a horizontal line under H1 elements*/
 h1 {
-  background-color: lightgray;
+  background-color: grey;
   border-bottom: 2px white;
 }
 
@@ -42,7 +42,7 @@ canvas{
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
-	border: 0px;
+	border: 1px white;
 	cursor: none;
 }
 
