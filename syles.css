@@ -1,10 +1,6 @@
-/* Set the text color */
-body {
-  color: black;
-}
-
 /* Set the background color to grey*/
 body {
+  color: black;
   background-color: gray;
   border: 1px solid lightgray;
 }
@@ -12,7 +8,7 @@ body {
 /* Add a horizontal line under H1 elements*/
 h1 {
   color: black;
-  background-color: blue;
+  background-color: #000;
   border-bottom: 2px white;
 }
 
@@ -26,8 +22,10 @@ h1 {
 	float:right;
 }
 
-@media screen and (min-width:512px) {
-	.p8_menu_button{
+@media screen and (min-width:512px) 
+{
+	.p8_menu_button
+	{
 		width:24px; margin-left:12px; margin-bottom:8px;
 	}
 }
@@ -36,8 +34,8 @@ h1 {
 	cursor:pointer;
 }
 
-canvas{
-    background-color: white;
+canvas
+{
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-optimize-contrast;
