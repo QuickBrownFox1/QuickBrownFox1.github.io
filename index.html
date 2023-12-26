@@ -124,7 +124,12 @@
 		// as big as will fit in a frame..
 		csize =  Math.min(frame_width,frame_height);
 
-		
+		// .. but never more than 2/3 of longest side for touch (e.g. leave space for controls on iPad)
+		if (p8_touch_detected && p8_is_running)
+		{
+			var longest_side = Math.max(window.innerWidth,window.innerHeight);
+			csize = Math.min(csize, longest_side * 2/3);
+		}
 
 		// pixel perfect: quantize to closest multiple of 128
 		// only when large display (desktop)
@@ -141,7 +146,26 @@
 
 		if (is_fullscreen)
 		{
-			margin_top = (frame_height - csize)/2;
+			// always center horizontally
+			margin_left = (frame_width - csize)/2;
+
+			if (p8_touch_detected)
+			{
+				if (window.innerWidth < window.innerHeight)
+				{
+					// portrait: keep at y=40 (avoid rounded top corners / camera nub thing etc.)
+					margin_top = Math.min(40, frame_height - csize);
+				}
+				else
+				{
+					// landscape: put a little above vertical center
+					margin_top = (frame_height - csize)/4;
+				}
+			}
+			else{
+				// non-touch: center vertically
+				margin_top = (frame_height - csize)/2;
+			}
 		}
 
 		// skip if relevant state has not changed
@@ -168,7 +192,15 @@
 		if (!is_fullscreen && p8_frame)
 			last_windowed_container_height = p8_frame.parentNode.parentNode.offsetHeight;
 		
-		p8_playarea.style.marginTop = "";
+
+		// mobile in portrait mode: put screen at top (w / a little extra space for fullscreen button if needed)
+		// (don't cart too about buttons overlapping screen)
+		if (p8_touch_detected && p8_is_running && document.body.clientWidth < document.body.clientHeight)
+			p8_playarea.style.marginTop = p8_allow_mobile_menu ? 32 : 8;
+		else if (p8_touch_detected && p8_is_running) // landscape: slightly above vertical center (only relevant for iPad / highres devices)
+			p8_playarea.style.marginTop = (document.body.clientHeight - csize) / 4;
+		else
+			p8_playarea.style.marginTop = "";
 
 		canvas.style.width = csize;
 		canvas.style.height = csize;
@@ -185,8 +217,8 @@
 		el.style.marginTop = csize - el.offsetHeight;
 
 
-		document.getElementById("touch_controls_gfx").style.display="none";
-		document.getElementById("touch_controls_background").style.display="none";
+			document.getElementById("touch_controls_gfx").style.display="none";
+			document.getElementById("touch_controls_background").style.display="none";
 		
 
 		if (!p8_is_running)
@@ -200,6 +232,20 @@
 		}
 		requestAnimationFrame(p8_update_layout);
 	}
+
+
+	var p8_touch_detected = false;
+	addEventListener("touchstart", function(event)
+	{
+		p8_touch_detected = true;
+
+		// hide codo_textarea -- clipboard support on mobile is not feasible
+		el = document.getElementById("codo_textarea");
+		if (el && el.style.display != "none"){
+			el.style.display="none";
+		}
+
+	},  {passive: true});
 
 	function p8_create_audio_context()
 	{
@@ -788,4 +834,3 @@ canvas{
 
 </div> <!-- body_0 -->
 </body></html>
-
