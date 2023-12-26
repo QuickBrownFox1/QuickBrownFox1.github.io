@@ -231,50 +231,10 @@
 		el = document.getElementById("p8_menu_buttons");
 		el.style.marginTop = csize - el.offsetHeight;
 
-		if (p8_touch_detected && p8_is_running)
-		{
-			// turn off pointer events to prevent double-tap zoom etc (works on Android)
-			// don't want this for desktop because breaks mouse input & click-to-focus when using codo_textarea
-			canvas.style.pointerEvents = "none";
 
-			p8_container.style.marginTop = "0px";
-
-			// buttons
-			
-			// same as touch event handling
-			var w = window.innerWidth;
-			var h = window.innerHeight;
-			var r = Math.min(w,h) / 12;
-
-			if (r > 40) r = 40;
-
-			el = document.getElementById("controls_right_panel");
-			el.style.left = w-r*6;
-			el.style.top = h-r*7;
-			el.style.width = r*6;
-			el.style.height = r*7;
-			if (el.getAttribute("src") != p8_gfx_dat["controls_right_panel"]) // optimisation: avoid reload? (browser should handle though)
-				el.setAttribute("src", p8_gfx_dat["controls_right_panel"]);
-
-			el = document.getElementById("controls_left_panel");
-			el.style.left = 0;
-			el.style.top = h-r*6;
-			el.style.width = r*6;
-			el.style.height = r*6;
-			if (el.getAttribute("src") != p8_gfx_dat["controls_left_panel"]) // optimisation: avoid reload? (browser should handle though)
-				el.setAttribute("src", p8_gfx_dat["controls_left_panel"]);
-			
-			// scroll to cart (commented; was a failed attempt to prevent scroll-on-drag on some browsers)
-			// p8_frame.scrollIntoView(true);
-
-			document.getElementById("touch_controls_gfx").style.display="table";
-			document.getElementById("touch_controls_background").style.display="table";
-
-		}
-		else{
 			document.getElementById("touch_controls_gfx").style.display="none";
 			document.getElementById("touch_controls_background").style.display="none";
-		}
+		
 
 		if (!p8_is_running)
 		{
