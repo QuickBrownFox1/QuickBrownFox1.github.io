@@ -10,11 +10,11 @@
 	// options
 
 	// fullscreen, sound, close button at top when playing on touchscreen
-	//var p8_allow_mobile_menu = true;
+	var p8_allow_mobile_menu = true;
 
 	// p8_autoplay true to boot the cartridge automatically after page load when possible
 	// if the browser can not create an audio context outside of a user gesture (e.g. on iOS), p8_autoplay has no effect
-	var p8_autoplay = true;
+	var p8_autoplay = false;
 
 	// When pico8_state is defined, PICO-8 will set .is_paused, .sound_volume and .frame_number each frame 
 	// (used for determining button icons)
@@ -42,47 +42,47 @@
 	var pico8_audio_context;
 
 	var p8_buttons_hash = -1;
-	function p8_update_button_icons()
-	{
+//	function p8_update_button_icons()
+//	{
 		// buttons only appear when running
-		if (!p8_is_running)
-		{
-			requestAnimationFrame(p8_update_button_icons);
-			return;
-		}
-		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
+//		if (!p8_is_running)
+//		{
+//			requestAnimationFrame(p8_update_button_icons);
+//			return;
+//		}
+//		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
 
 		// hash based on: pico8_state.sound_volume  pico8_state.is_paused bottom_margin left is_fullscreen p8_touch_detected
-		var hash = 0;
-		hash = pico8_state.sound_volume;
-		if (pico8_state.is_paused) hash += 0x100;
-		if (p8_touch_detected)     hash += 0x200;
-		if (is_fullscreen)         hash += 0x400;
+//		var hash = 0;
+//		hash = pico8_state.sound_volume;
+//		if (pico8_state.is_paused) hash += 0x100;
+//		if (p8_touch_detected)     hash += 0x200;
+//		if (is_fullscreen)         hash += 0x400;
 
-		if (p8_buttons_hash == hash)
-		{
-			requestAnimationFrame(p8_update_button_icons);
-			return;
-		}
+//		if (p8_buttons_hash == hash)
+//		{
+//			requestAnimationFrame(p8_update_button_icons);
+//			return;
+//		}
 
-		p8_buttons_hash = hash;
+//		p8_buttons_hash = hash;
 		// console.log("@@ updating button icons");
 
-		els = document.getElementsByClassName('p8_menu_button');
-		for (i = 0; i < els.length; i++)
-		{
-			el = els[i];
-			index = el.id;			
-			if (index == 'p8b_sound') index += (pico8_state.sound_volume == 0 ? "0" : "1"); // 1 if undefined
-			if (index == 'p8b_pause') index += (pico8_state.is_paused > 0 ? "1" : "0");     // 0 if undefined
-
-			new_str = '<img width=24 height=24 style="pointer-events:none" src="'+p8_gfx_dat[index]+'">';
-			if (el.innerHTML != new_str)
-				el.innerHTML = new_str;
-
-		}
-		requestAnimationFrame(p8_update_button_icons);
-	}
+//		els = document.getElementsByClassName('p8_menu_button');
+//		for (i = 0; i < els.length; i++)
+//		{
+//			el = els[i];
+//			index = el.id;			
+//			if (index == 'p8b_sound') index += (pico8_state.sound_volume == 0 ? "0" : "1"); // 1 if undefined
+//			if (index == 'p8b_pause') index += (pico8_state.is_paused > 0 ? "1" : "0");     // 0 if undefined
+//
+//			new_str = '<img width=24 height=24 style="pointer-events:none" src="'+p8_gfx_dat[index]+'">';
+//			if (el.innerHTML != new_str)
+//				el.innerHTML = new_str;
+//
+//		}
+//		requestAnimationFrame(p8_update_button_icons);
+//	}
 
 
 	function abs(x)
@@ -120,7 +120,22 @@
 
 		// assumes frame doesn't have padding
 		
-	//------------------------------------------------------------------------------------------
+		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
+		var frame_width = p8_frame.offsetWidth;
+		var frame_height = p8_frame.offsetHeight;
+
+		if (is_fullscreen)
+		{
+			// same as window
+			frame_width = window.innerWidth;
+			frame_height = window.innerHeight;
+		}
+		else{
+			// never larger than window  // (happens when address bar is down in portraight mode on phone)
+			frame_width  = Math.min(frame_width, window.innerWidth);
+			frame_height = Math.min(frame_height, window.innerHeight);
+		}
+
 		// as big as will fit in a frame..
 		csize =  Math.min(frame_width,frame_height);
 
@@ -216,10 +231,50 @@
 		el = document.getElementById("p8_menu_buttons");
 		el.style.marginTop = csize - el.offsetHeight;
 
+		if (p8_touch_detected && p8_is_running)
+		{
+			// turn off pointer events to prevent double-tap zoom etc (works on Android)
+			// don't want this for desktop because breaks mouse input & click-to-focus when using codo_textarea
+			canvas.style.pointerEvents = "none";
 
+			p8_container.style.marginTop = "0px";
+
+			// buttons
+			
+			// same as touch event handling
+			var w = window.innerWidth;
+			var h = window.innerHeight;
+			var r = Math.min(w,h) / 12;
+
+			if (r > 40) r = 40;
+
+			el = document.getElementById("controls_right_panel");
+			el.style.left = w-r*6;
+			el.style.top = h-r*7;
+			el.style.width = r*6;
+			el.style.height = r*7;
+			if (el.getAttribute("src") != p8_gfx_dat["controls_right_panel"]) // optimisation: avoid reload? (browser should handle though)
+				el.setAttribute("src", p8_gfx_dat["controls_right_panel"]);
+
+			el = document.getElementById("controls_left_panel");
+			el.style.left = 0;
+			el.style.top = h-r*6;
+			el.style.width = r*6;
+			el.style.height = r*6;
+			if (el.getAttribute("src") != p8_gfx_dat["controls_left_panel"]) // optimisation: avoid reload? (browser should handle though)
+				el.setAttribute("src", p8_gfx_dat["controls_left_panel"]);
+			
+			// scroll to cart (commented; was a failed attempt to prevent scroll-on-drag on some browsers)
+			// p8_frame.scrollIntoView(true);
+
+			document.getElementById("touch_controls_gfx").style.display="table";
+			document.getElementById("touch_controls_background").style.display="table";
+
+		}
+		else{
 			document.getElementById("touch_controls_gfx").style.display="none";
 			document.getElementById("touch_controls_background").style.display="none";
-		
+		}
 
 		if (!p8_is_running)
 		{
