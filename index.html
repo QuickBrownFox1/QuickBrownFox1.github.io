@@ -10,7 +10,7 @@
 	// options
 
 	// fullscreen, sound, close button at top when playing on touchscreen
-	var p8_allow_mobile_menu = true;
+	var p8_allow_mobile_menu = false;
 
 	// p8_autoplay true to boot the cartridge automatically after page load when possible
 	// if the browser can not create an audio context outside of a user gesture (e.g. on iOS), p8_autoplay has no effect
@@ -140,11 +140,6 @@
 		csize =  Math.min(frame_width,frame_height);
 
 		// .. but never more than 2/3 of longest side for touch (e.g. leave space for controls on iPad)
-		if (p8_touch_detected && p8_is_running)
-		{
-			var longest_side = Math.max(window.innerWidth,window.innerHeight);
-			csize = Math.min(csize, longest_side * 2/3);
-		}
 
 		// pixel perfect: quantize to closest multiple of 128
 		// only when large display (desktop)
