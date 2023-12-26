@@ -465,10 +465,10 @@
 		//else if (p8_touch_detected && p8_is_running) // landscape: slightly above vertical center (only relevant for iPad / highres devices)
 		//	p8_playarea.style.marginTop = (document.body.clientHeight - csize) / 4;
 		//else
-			p8_playarea.style.marginTop = "";
+			//p8_playarea.style.marginTop = "";
 
-		canvas.style.width = csize;
-		canvas.style.height = csize;
+		canvas.style.width = 750; //changed from csize
+		canvas.style.height = 680; //changed from csize
 
 		// to do: this should just happen from css layout
 		canvas.style.marginLeft = margin_left;
