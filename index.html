@@ -10,11 +10,11 @@
 	// options
 
 	// fullscreen, sound, close button at top when playing on touchscreen
-	var p8_allow_mobile_menu = true;
+	//var p8_allow_mobile_menu = true;
 
 	// p8_autoplay true to boot the cartridge automatically after page load when possible
 	// if the browser can not create an audio context outside of a user gesture (e.g. on iOS), p8_autoplay has no effect
-	var p8_autoplay = false;
+	var p8_autoplay = true;
 
 	// When pico8_state is defined, PICO-8 will set .is_paused, .sound_volume and .frame_number each frame 
 	// (used for determining button icons)
@@ -120,22 +120,7 @@
 
 		// assumes frame doesn't have padding
 		
-		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
-		var frame_width = p8_frame.offsetWidth;
-		var frame_height = p8_frame.offsetHeight;
-
-		if (is_fullscreen)
-		{
-			// same as window
-			frame_width = window.innerWidth;
-			frame_height = window.innerHeight;
-		}
-		else{
-			// never larger than window  // (happens when address bar is down in portraight mode on phone)
-			frame_width  = Math.min(frame_width, window.innerWidth);
-			frame_height = Math.min(frame_height, window.innerHeight);
-		}
-
+	//------------------------------------------------------------------------------------------
 		// as big as will fit in a frame..
 		csize =  Math.min(frame_width,frame_height);
 
