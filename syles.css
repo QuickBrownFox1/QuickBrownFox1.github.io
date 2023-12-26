@@ -7,7 +7,7 @@ body {
 /* Add a horizontal line under H1 elements*/
 h1 {
   color: black;
-  background-color: #000;
+  background-color: gray;
   border-bottom: 2px white;
 }
 
