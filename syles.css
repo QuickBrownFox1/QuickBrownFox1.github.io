@@ -1,4 +1,14 @@
-.hero {
-  color: gray;
-  background-color: skyblue;
+/* Set the text color to light blue */
+body {
+  color: lightblue;
+}
+
+/* Set the background color to grey */
+body {
+  background-color: grey;
+}
+
+/* Add a horizontal line under H1 elements */
+h1 {
+  border-bottom: 1px solid black;
 }
