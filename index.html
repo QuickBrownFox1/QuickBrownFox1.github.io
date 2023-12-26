@@ -66,7 +66,10 @@
 		}
 		requestAnimationFrame(p8_update_button_icons);
 	}
-
+	function abs(x)
+	{
+		return x < 0 ? -x : x;
+	}
 	// key blocker. prevent browser operations while playing cart so that PICO-8 can use those keys e.g. cursors to scroll, ctrl-r to reload
 	document.addEventListener('keydown',
 	function (event) {
