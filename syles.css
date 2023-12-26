@@ -1,6 +1,5 @@
 /* Set the background color to grey*/
 body {
-  color: black;
   background-color: gray;
   border: 1px solid lightgray;
 }
