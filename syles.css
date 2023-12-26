@@ -11,5 +11,6 @@ body {
 
 /* Add a horizontal line under H1 elements*/
 h1 {
-  border-bottom: 3px white;
+  background-color: lightgray;
+  border-bottom: 2px white;
 }
