@@ -42,7 +42,7 @@ canvas{
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
-	border: 4px white;
+	border: 0px;
 	cursor: none;
 }
 
