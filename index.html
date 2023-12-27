@@ -126,12 +126,12 @@
 		var frame_width = p8_frame.offsetWidth;
 		var frame_height = p8_frame.offsetHeight;
 
-		if (is_fullscreen)
-		{
+//		if (is_fullscreen)
+//		{
 			// same as window
-			frame_width = window.innerWidth;
-			frame_height = window.innerHeight;
-		}
+//			frame_width = window.innerWidth;
+//			frame_height = window.innerHeight;
+//		}
 		else{
 			// never larger than window  // (happens when address bar is down in portraight mode on phone)
 			frame_width  = Math.min(frame_width, window.innerWidth);
@@ -329,7 +329,7 @@
 			if (canvas)
 			{
 				canvas.addEventListener('dragenter', dragover, false);
-				canvas.addEventListener('dragover', dragover, false);
+				//canvas.addEventListener('dragover', dragover, false);
 				canvas.addEventListener('dragleave', dragstop, false);
 				canvas.addEventListener('drop', nop, false);
 				canvas.addEventListener('drop', p8_drop_file, false);
@@ -431,7 +431,7 @@
 
 	// gamepad  https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
 	// (sets bits in pico8_buttons[])
-	requestAnimationFrame(p8_update_gamepads);
+	//requestAnimationFrame(p8_update_gamepads);
 	// key blocker. prevent browser operations while playing cart so that PICO-8 can use those keys e.g. cursors to scroll, ctrl-r to reload
 	document.addEventListener('keydown',
 	function (event) {
@@ -565,7 +565,7 @@
 <script type="text/javascript">
 
 	p8_update_layout();
-	p8_update_button_icons();
+	//p8_update_button_icons();
 
 	var canvas = document.getElementById("canvas");
 	Module = {};
