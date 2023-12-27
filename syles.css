@@ -8,13 +8,13 @@ body
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: top;
+  justify-content: space-evenly;
   height: 100vh;
 
   width: 750px; /* Approximately the width of an A4 page */
   margin: 0 auto; /* Center the container horizontally */
   padding: 20px; /* Add some padding around the text */
-  /*text-align: left; /* Center the text within the container */
+  text-align: left; /* Center the text within the container */
 }
 
 /* Add a horizontal line under H1 elements*/
@@ -24,21 +24,18 @@ h1
   background-color: darkgrey;
   border-bottom: white;
   font-family: monospace;
-  align-items: left;
 }
 
 h2
 {
 	font-family: monospace;
 	color: white;
-	align-items: left;
 }
 
 p
 {
 	color:white;
 	font-family: monospace;
-	align-items: left;
 }
 
 a
@@ -47,7 +44,7 @@ a
 	font-family:monospace;
 	border-bottom:white;
 }
-}
+
 <!--
 .p8_menu_button{
 	opacity:0.3;
@@ -110,6 +107,6 @@ canvas
   width: 595px; /* Approximately the width of an A4 page */
   margin: 0 auto; /* Center the container horizontally */
   padding: 20px; /* Add some padding around the text */
-  text-align: center; /* Center the text within the container */
+  text-align: left; /* Center the text within the container */
 }
 
