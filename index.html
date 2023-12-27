@@ -132,11 +132,11 @@
 //			frame_width = window.innerWidth;
 //			frame_height = window.innerHeight;
 //		}
-		else{
+		//else{
 			// never larger than window  // (happens when address bar is down in portraight mode on phone)
 			frame_width  = Math.min(frame_width, window.innerWidth);
 			frame_height = Math.min(frame_height, window.innerHeight);
-		}
+		//}
 
 		// as big as will fit in a frame..
 		csize =  Math.min(frame_width,frame_height);
@@ -564,7 +564,7 @@
 
 <script type="text/javascript">
 
-	p8_update_layout();
+//	p8_update_layout();
 	//p8_update_button_icons();
 
 	var canvas = document.getElementById("canvas");
