@@ -13,10 +13,15 @@ body {
 /* Add a horizontal line under H1 elements*/
 h1 {
   color: white;
-  background-color: grey;
+  background-color: darkgrey;
   border-bottom: 2px white;
   font-family: monospace;
 }
+
+h2
+{
+	font-family: monospace;
+	color: white;
 
 <!--
 .p8_menu_button{
