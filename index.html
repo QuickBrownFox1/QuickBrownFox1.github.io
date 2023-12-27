@@ -520,38 +520,20 @@
 		<div id="p8_playarea" style="display:none; margin:auto; 
 				-webkit-user-select:none; -moz-user-select: none; user-select: none; -webkit-touch-callout:none;
 		">
-
+			<!--
 			<div  id="touch_controls_background"
 				  style=" pointer-events:none; display:none; background-color:#000;
 						 position:fixed; top:0px; left:0px; border:0; width:100vw; height:100vh">
 				&nbsp
 			</div>
+			-->
 
 			<div style="display:flex; position:relative">
 				<!-- pointer-events turned off for mobile in p8_update_layout because need for desktop mouse -->
-				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault(); width="750" height="750">
+				<canvas class="emscripten" id="canvas" width="750" height="750" oncontextmenu="event.preventDefault(); >
 				</canvas>
-				<!--
-				<div class=p8_menu_buttons id="p8_menu_buttons" style="margin-left:10px;">
-					<div class="p8_menu_button" style="position:absolute; bottom:125px" id="p8b_controls" onClick="p8_give_focus(); Module.pico8ToggleControlMenu();"></div>					
-					<div class="p8_menu_button" style="position:absolute; bottom:90px" id="p8b_pause" onClick="p8_give_focus(); Module.pico8TogglePaused(); p8_update_layout_hash = -22;"></div>
-					<div class="p8_menu_button" style="position:absolute; bottom:55px" id="p8b_sound" onClick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();"></div>
-					<div class="p8_menu_button" style="position:absolute; bottom:20px" id="p8b_full" onClick="p8_give_focus(); p8_request_fullscreen();"></div>
-				</div>
-				-->
+					
 			</div>
-
-
-			<!-- display after first layout update -->
-			<div  id="touch_controls_gfx"
-				  style=" pointer-events:none; display:table; 
-						 position:fixed; top:0px; left:0px; border:0; width:100vw; height:100vh">
-
-					<img src="" id="controls_right_panel" style="position:absolute; opacity:0.5;">
-					<img src="" id="controls_left_panel" style="position:absolute;  opacity:0.5;">
-						
-			
-			</div> <!-- touch_controls_gfx -->
 
 			<!-- used for clipboard access & keyboard input; displayed and used by PICO-8 only once needed. can be safely removed if clipboard / key presses not needed. -->
 			<!-- (needs to be inside p8_playarea so that it still works under Chrome when fullscreened) -->
