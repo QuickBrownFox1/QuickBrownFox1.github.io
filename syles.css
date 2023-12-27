@@ -7,6 +7,7 @@ body
 body {
   background-color: grey;
   border: 1px solid lightgrey;
+  font-family: monospace;
 }
 
 /* Add a horizontal line under H1 elements*/
@@ -14,6 +15,7 @@ h1 {
   color: white;
   background-color: grey;
   border-bottom: 2px white;
+  font-family: monospace;
 }
 
 <!--
