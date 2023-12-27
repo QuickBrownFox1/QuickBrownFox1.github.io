@@ -7,9 +7,14 @@ body
   font-family: monospace;
   display:flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   height: 100vh;
+
+  width: 750px; /* Approximately the width of an A4 page */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add some padding around the text */
+  text-align: left; /* Center the text within the container */
 }
 
 /* Add a horizontal line under H1 elements*/
@@ -19,14 +24,12 @@ h1
   background-color: darkgrey;
   border-bottom: white;
   font-family: monospace;
-  justify-content: left;
 }
 
 h2
 {
 	font-family: monospace;
 	color: white;
-	justify-content: left;
 }
 }
 a
@@ -34,7 +37,6 @@ a
 	color:white;
 	font-family:monospace;
 	border-bottom:white;
-	justify-content: left;
 }
 }
 <!--
