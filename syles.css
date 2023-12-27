@@ -14,7 +14,7 @@ body
   width: 750px; /* Approximately the width of an A4 page */
   margin: 0 auto; /* Center the container horizontally */
   padding: 20px; /* Add some padding around the text */
-  text-align: left; /* Center the text within the container */
+  /*text-align: left; /* Center the text within the container */
 }
 
 /* Add a horizontal line under H1 elements*/
