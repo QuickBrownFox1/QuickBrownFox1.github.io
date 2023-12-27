@@ -46,6 +46,8 @@ canvas
     image-rendering: optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
+	width:750px;
+	height:750px;
 	border: 0px;
 	cursor: none;
 }
