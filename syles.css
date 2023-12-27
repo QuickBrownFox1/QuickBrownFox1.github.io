@@ -5,6 +5,10 @@ body
   background-color: grey;
   border: 1px solid lightgrey;
   font-family: monospace;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 /* Add a horizontal line under H1 elements*/
@@ -85,3 +89,10 @@ canvas
 	stroke-opacity:0.7;
 	fill:none;
 }
+.content-area {
+  width: 595px; /* Approximately the width of an A4 page */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; /* Add some padding around the text */
+  text-align: center; /* Center the text within the container */
+}
+
