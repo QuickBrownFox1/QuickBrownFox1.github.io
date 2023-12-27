@@ -291,9 +291,9 @@
 
 		// install touch events. These also serve to block scrolling / pinching / zooming on phones when p8_is_running
 			// moved event.preventDefault(); calls into pico8_buttons_event() (want to let top buttons pass through)
-		addEventListener("touchstart", function(event){ pico8_buttons_event(event, 0); }, {passive: false});
-		addEventListener("touchmove",  function(event){ pico8_buttons_event(event, 1); }, {passive: false});
-		addEventListener("touchend",   function(event){ pico8_buttons_event(event, 2); }, {passive: false});
+		//addEventListener("touchstart", function(event){ pico8_buttons_event(event, 0); }, {passive: false});
+		//addEventListener("touchmove",  function(event){ pico8_buttons_event(event, 1); }, {passive: false});
+		//addEventListener("touchend",   function(event){ pico8_buttons_event(event, 2); }, {passive: false});
 
 
 		// load and run script
@@ -378,13 +378,7 @@
 
 
 	function p8_convert_standard_gamepad_to_button_state(gamepad, axis_threshold, button_threshold) {
-		// Given a gamepad object, return:
-		// {
-		//     button_state: the binary encoded Pico 8 button state
-		//     menu_button: true if any menu-mapped button was pressed
-		//     any_button: true if any button was pressed, including d-pad
-		//         buttons and unmapped buttons
-		// }
+
 		if (!gamepad || !gamepad.axes || !gamepad.buttons) {
 			return {
 				button_state: 0,
@@ -497,15 +491,9 @@
 <!-- Add any content above the cart here -->
 <h1>Welcome to typing time!</h1>
 
-<div id="p8_frame_0" style="max-width:800px; max-height:800px; margin:auto;"> <!-- double function: limit size, and display only this div for touch devices -->
-<div id="p8_frame" style="display:flex; width:800px; max-width:800px; height:800px; max-height:95vh; margin:auto;">
-	<!--
-	<div id="p8_menu_buttons_touch" style="position:absolute; width:100%; z-index:10; left:0px;">
-		<div class="p8_menu_button" id="p8b_full"  style="float:left;margin-left:10px" onClick="p8_give_focus(); p8_request_fullscreen();"></div>
-		<div class="p8_menu_button" id="p8b_sound" style="float:left;margin-left:10px" onClick="p8_give_focus(); p8_create_audio_context(); Module.pico8ToggleSound();"></div>
-		<div class="p8_menu_button" id="p8b_close" style="float:right; margin-right:10px" onClick="p8_close_cart();"></div>
-	</div>
-	-->
+<div id="p8_frame_0" style="max-width:750px; max-height:750px; margin:auto;"> <!-- double function: limit size, and display only this div for touch devices -->
+<div id="p8_frame" style="display:flex; width:750px; max-width:750px; height:750px; max-height:95vh; margin:auto;">
+
 	<div id="p8_container"
 		style="margin:auto; display:table;"
 		onclick="p8_create_audio_context(); p8_run_cart();">
@@ -518,19 +506,11 @@
 		
 
 		<div id="p8_playarea" style="display:none; margin:auto; 
-				-webkit-user-select:none; -moz-user-select: none; user-select: none; -webkit-touch-callout:none;
-		">
-			<!--
-			<div  id="touch_controls_background"
-				  style=" pointer-events:none; display:none; background-color:#000;
-						 position:fixed; top:0px; left:0px; border:0; width:100vw; height:100vh">
-				&nbsp
-			</div>
-			-->
+				-webkit-user-select:none; -moz-user-select: none; user-select: none; -webkit-touch-callout:none;">
 
 			<div style="display:flex; position:relative">
 				<!-- pointer-events turned off for mobile in p8_update_layout because need for desktop mouse -->
-				<canvas class="emscripten" id="canvas" width="750" height="750" oncontextmenu="event.preventDefault(); >
+				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault(); >
 				</canvas>
 					
 			</div>
