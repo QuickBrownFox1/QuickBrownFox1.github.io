@@ -1,17 +1,15 @@
 /* Set the background color to grey*/
-body
+body 
 {
-	color: white;
-}
-
-body {
+  color: white;
   background-color: grey;
   border: 1px solid lightgrey;
   font-family: monospace;
 }
 
 /* Add a horizontal line under H1 elements*/
-h1 {
+h1 
+{
   color: white;
   background-color: darkgrey;
   border-bottom: 2px white;
