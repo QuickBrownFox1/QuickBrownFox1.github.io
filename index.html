@@ -44,47 +44,47 @@
 	var pico8_audio_context;
 
 	var p8_buttons_hash = -1;
-	function p8_update_button_icons()
-	{
+//	function p8_update_button_icons()
+//	{
 		// buttons only appear when running
-		if (!p8_is_running)
-		{
-			requestAnimationFrame(p8_update_button_icons);
+//		if (!p8_is_running)
+//		{
+//			requestAnimationFrame(p8_update_button_icons);
 			return;
-		}
-		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
+//		}
+//		var is_fullscreen=(document.fullscreenElement || document.mozFullScreenElement || document.webkitIsFullScreen || document.msFullscreenElement);
+//
+//		// hash based on: pico8_state.sound_volume  pico8_state.is_paused bottom_margin left is_fullscreen p8_touch_detected
+//		var hash = 0;
+//		hash = pico8_state.sound_volume;
+//		if (pico8_state.is_paused) hash += 0x100;
+//		if (p8_touch_detected)     hash += 0x200;
+//		if (is_fullscreen)         hash += 0x400;
+//
+//		if (p8_buttons_hash == hash)
+//		{
+//			requestAnimationFrame(p8_update_button_icons);
+//			return;
+//		}
+//
+//		p8_buttons_hash = hash;
+//		// console.log("@@ updating button icons");
 
-		// hash based on: pico8_state.sound_volume  pico8_state.is_paused bottom_margin left is_fullscreen p8_touch_detected
-		var hash = 0;
-		hash = pico8_state.sound_volume;
-		if (pico8_state.is_paused) hash += 0x100;
-		if (p8_touch_detected)     hash += 0x200;
-		if (is_fullscreen)         hash += 0x400;
+//		els = document.getElementsByClassName('p8_menu_button');
+//		for (i = 0; i < els.length; i++)
+//		{
+//			el = els[i];
+//			index = el.id;			
+//			if (index == 'p8b_sound') index += (pico8_state.sound_volume == 0 ? "0" : "1"); // 1 if undefined
+//			if (index == 'p8b_pause') index += (pico8_state.is_paused > 0 ? "1" : "0");     // 0 if undefined
 
-		if (p8_buttons_hash == hash)
-		{
-			requestAnimationFrame(p8_update_button_icons);
-			return;
-		}
+//			new_str = '<img width=24 height=24 style="pointer-events:none" src="'+p8_gfx_dat[index]+'">';
+//			if (el.innerHTML != new_str)
+//				el.innerHTML = new_str;
 
-		p8_buttons_hash = hash;
-		// console.log("@@ updating button icons");
-
-		els = document.getElementsByClassName('p8_menu_button');
-		for (i = 0; i < els.length; i++)
-		{
-			el = els[i];
-			index = el.id;			
-			if (index == 'p8b_sound') index += (pico8_state.sound_volume == 0 ? "0" : "1"); // 1 if undefined
-			if (index == 'p8b_pause') index += (pico8_state.is_paused > 0 ? "1" : "0");     // 0 if undefined
-
-			new_str = '<img width=24 height=24 style="pointer-events:none" src="'+p8_gfx_dat[index]+'">';
-			if (el.innerHTML != new_str)
-				el.innerHTML = new_str;
-
-		}
-		requestAnimationFrame(p8_update_button_icons);
-	}
+//		}
+//		requestAnimationFrame(p8_update_button_icons);
+//	}
 
 
 	function abs(x)
