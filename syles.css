@@ -108,4 +108,10 @@ canvas
   padding: 20px; /* Add some padding around the text */
   text-align: left; /* Center the text within the container */
 }
+.center {
+  display: block;
+  margin: auto;
+  align-content:left;
+  width: 50%;
+}
 
