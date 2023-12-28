@@ -1,37 +1,31 @@
 /* Set the background color to grey*/
 body 
 {
-  color: white;
-  background-color: grey;
-  border: 1px solid lightgrey;
-  font-family: monospace;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100vh;
+	color: white;
+	background-color: grey;
+	border: 1px solid lightgrey;
+	font-family: monospace;
+	height: 100vh;
 
-  width: 750px; /* Approximately the width of an A4 page */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 20px; /* Add some padding around the text */
-  text-align: left; /* Center the text within the container */
+	max-width:800px; /* Approximately the width of an A4 page */
+	margin:  auto; /* Center the container horizontally */
+	padding: 20px; /* Add some padding around the text */
+	text-align: left; /* Center the text within the container */
 }
 
 /* Add a horizontal line under H1 elements*/
 h1 
 {
-  color: white;
-  background-color: darkgrey;
-  border-bottom: white;
-  font-family: monospace;
-  text-align: left;
+	color: white;
+	background-color: darkgrey;
+	border-bottom: white;
+	font-family: monospace;
 }
 
 h2
 {
 	font-family: monospace;
 	color: white;
-	text-align: left;
 }
 
 p
@@ -46,7 +40,6 @@ a
 	color:white;
 	font-family:monospace;
 	border-bottom:white;
-	text-align: left;
 }
 
 <!--
@@ -109,7 +102,7 @@ canvas
 	fill:none;
 }
 .content-area {
-  width: 595px; /* Approximately the width of an A4 page */
+  width: 800px; /* Approximately the width of an A4 page */
   margin: 0 auto; /* Center the container horizontally */
   padding: 20px; /* Add some padding around the text */
   text-align: left; /* Center the text within the container */
