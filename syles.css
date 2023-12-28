@@ -24,18 +24,21 @@ h1
   background-color: darkgrey;
   border-bottom: white;
   font-family: monospace;
+  text-align: left;
 }
 
 h2
 {
 	font-family: monospace;
 	color: white;
+	text-align: left;
 }
 
 p
 {
 	color:white;
 	font-family: monospace;
+	text-align: left;
 }
 
 a
@@ -43,6 +46,7 @@ a
 	color:white;
 	font-family:monospace;
 	border-bottom:white;
+	text-align: left;
 }
 
 <!--
@@ -79,6 +83,7 @@ canvas
 	height:750px;
 	border: 0px;
 	cursor: none;
+    align-items: center;
 }
 
 
