@@ -116,7 +116,7 @@ canvas
 
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 20%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -130,5 +130,17 @@ canvas
 	font-size:25px;
 	color:white;
 	display: block;
+}
+.sidenavr
+{
+	height: 100%
+	width: 20%
+	position:fixed;
+	z-index:1;
+	top:0;
+	right:0;
+	background-color:darkgray;
+	overflow-x:hidden;
+	padding-top:20px;
 }
 
