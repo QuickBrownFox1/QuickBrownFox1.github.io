@@ -125,4 +125,10 @@ canvas
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
+.sidenav a
+{
+	font-size:25px;
+	color:white;
+	display: block;
+}
 
