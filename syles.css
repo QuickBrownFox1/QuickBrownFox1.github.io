@@ -121,7 +121,7 @@ canvas
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: darkgray; /* Black */
+  background-color: grey; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -139,7 +139,7 @@ canvas
 	z-index:1;
 	top:0;
 	right:0;
-	background-color:darkgray;
+	background-color: grey;
 	overflow-x:hidden;
 	padding-top:20px;
 }
