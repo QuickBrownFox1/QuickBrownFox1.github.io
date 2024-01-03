@@ -68,17 +68,17 @@ a
 
 canvas
 {
-    image-rendering: optimizeSpeed;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
-    image-rendering: pixelated;
-    -ms-interpolation-mode: nearest-neighbor;
+    	image-rendering: optimizeSpeed;
+    	image-rendering: -moz-crisp-edges;
+    	image-rendering: -webkit-optimize-contrast;
+    	image-rendering: optimize-contrast;
+    	image-rendering: pixelated;
+    	-ms-interpolation-mode: nearest-neighbor;
 	width:750px;
 	height:750px;
 	border: 0px;
 	cursor: none;
-    align-items: center;
+    	align-items: center;
 }
 
 
@@ -105,27 +105,28 @@ canvas
 	fill:none;
 }
 .content-area {
-  width: 800px; /* Approximately the width of an A4 page */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 20px; /* Add some padding around the text */
-  text-align: left; /* Center the text within the container */
+  	width: 800px; /* Approximately the width of an A4 page */
+  	margin: 0 auto; /* Center the container horizontally */
+  	padding: 20px; /* Add some padding around the text */
+  	text-align: left; /* Center the text within the container */
 }
 .center {
-  display: block;
-  margin: auto;
-  align-content:left;
+  	display: block;
+  	margin: auto;
+  	align-content:left;
 }
 
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 20%; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: grey; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px;
+  	height: 100%; /* Full-height: remove this if you want "auto" height */
+  	width: 20%; /* Set the width of the sidebar */
+  	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  	z-index: 1; /* Stay on top */
+	top: 0; /* Stay at the top */
+  	left: 0;
+  	background-color: grey; /* Black */
+	overflow-x: hidden; /* Disable horizontal scroll */
+  	padding-top: 60px;
+	padding-left:20px
 }
 .sidenav a
 {
