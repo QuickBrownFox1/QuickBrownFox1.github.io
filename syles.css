@@ -42,6 +42,11 @@ a
 	border-bottom:white;
 }
 
+img
+{
+	align-items:center;
+}
+
 <!--
 .p8_menu_button{
 	opacity:0.3;
