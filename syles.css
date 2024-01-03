@@ -74,8 +74,8 @@ canvas
     	image-rendering: optimize-contrast;
     	image-rendering: pixelated;
     	-ms-interpolation-mode: nearest-neighbor;
-	width:750px;
-	height:750px;
+	width:700px;
+	height:700px;
 	border: 0px;
 	cursor: none;
     	align-items: center;
@@ -105,7 +105,7 @@ canvas
 	fill:none;
 }
 .content-area {
-  	width: 800px; /* Approximately the width of an A4 page */
+  	width: 700px; /* Approximately the width of an A4 page */
   	margin: 0 auto; /* Center the container horizontally */
   	padding: 20px; /* Add some padding around the text */
   	text-align: left; /* Center the text within the container */
