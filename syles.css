@@ -9,7 +9,7 @@ body
 
 	max-width:800px; /* Approximately the width of an A4 page */
 	margin:  auto; /* Center the container horizontally */
-	padding: 20px; /* Add some padding around the text */
+	padding: 5px; /* Add some padding around the text */
 	text-align: left; /* Center the text within the container */
 }
 
@@ -146,5 +146,6 @@ canvas
 	overflow-x:hidden;
 	padding-top:60px;
 	padding-left: 2px;
+	padding-right: 30px;
 }
 
