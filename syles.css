@@ -5,7 +5,7 @@ body
 	background-color: grey;
 	border: 1px solid lightgrey;
 	font-family: monospace;
-	height: 200vh;
+	height: 300vh;
 
 	max-width:800px; /* Approximately the width of an A4 page */
 	margin:  auto; /* Center the container horizontally */
